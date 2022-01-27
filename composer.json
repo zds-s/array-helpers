@@ -1,0 +1,21 @@
+{
+    "name": "death_satan/array-helpers",
+    "description": "数组操作助手 Array helpers",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DeathSatan\\ArrayHelpers\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Death-Satan",
+            "email": "2771717608@qq.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+      "ext-json": "*"
+    }
+}
