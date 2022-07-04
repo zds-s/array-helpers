@@ -3,6 +3,7 @@
 namespace DeathSatan\ArrayHelpers;
 
 use ArrayAccess;
+use Closure;
 use Generator;
 
 class Arr
@@ -296,5 +297,27 @@ class Arr
             $chunk[$i] = $callable($item,$i);
         }
         yield $chunk;
+    }
+
+    /**
+     * 获取二维数组下某一列值的总和
+     * @param array $array
+     * @param string $column
+     * @return float|int
+     */
+    public static function column_sum(array $array,string $column)
+    {
+        return array_sum(array_column($array,$column));
+    }
+
+    /**
+     * 对二维数组做闭包处理
+     * @param array $array
+     * @param Closure $closure
+     * @return array
+     */
+    public static function each(array $array,Closure $closure): array
+    {
+        return array_map($closure,$array);
     }
 }
