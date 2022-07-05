@@ -320,4 +320,26 @@ class Arr
     {
         return array_map($closure,$array);
     }
+
+    /**
+     * 取出数组内第一个值
+     * @param array $array
+     * @return mixed
+     */
+    public static function first(array $array)
+    {
+        return array_shift($array);
+    }
+
+    /**
+     * 取出数组中最后一个值
+     * @param array $array
+     * @return mixed
+     */
+    public static function last(array $array)
+    {
+        return array_pop($array);
+    }
+
+
 }
