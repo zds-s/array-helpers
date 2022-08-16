@@ -341,5 +341,31 @@ class Arr
         return array_pop($array);
     }
 
+    /**
+     * 对二维数组进行多条件排序
+     * @param array $array 要排序的数组
+     * @param array $sort ['id'=>SORT_ASC,'age'=>SORT_DESC]
+     * @return array|mixed
+     */
+    public static function sortByField(array $array,array $sort)
+    {
+        foreach (array_keys($sort) as $_n) {
+            $$_n = [];
+        }
 
+        foreach ($array as $_k => $_v) {
+            foreach (array_keys($sort) as $_n) {
+                ${$_n}[$_k] = $_v[$_n];
+            }
+        }
+
+        $params = [];
+        foreach ($sort as $_n => $_s) {
+            $params[] = $$_n;
+            $params[] = ($_s == 'asc') ? SORT_ASC : SORT_DESC;
+        }
+        $params[] = &$array;
+        array_multisort(...$params);
+        return $array;
+    }
 }
